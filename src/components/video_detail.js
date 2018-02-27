@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class VideoDetail extends Component {
   render() {
@@ -21,4 +22,9 @@ class VideoDetail extends Component {
   }
 }
 
-export default VideoDetail;
+function mapStateToProps(state) {
+  // console.log('Map state to props with ' + JSON.stringify(state.selected_video));
+  return {video:state.selected_video};
+}
+
+export default connect(mapStateToProps)(VideoDetail);

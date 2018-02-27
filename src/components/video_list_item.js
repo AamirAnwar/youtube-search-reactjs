@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import {didSelectVideo} from '../actions';
+import {connect} from 'react-redux';
 
 class VideoListItem extends Component {
   render() {
     return (
-      <li onClick={(e) => {this.props.onVideoClick(this.props.video)}} className="list-group-item">
+      <li onClick={(e) => {this.props.didSelectVideo(this.props.video)}} className="list-group-item">
         <div className="video_list_item media">
 
           <div className="media-left">
@@ -20,4 +22,5 @@ class VideoListItem extends Component {
   }
 }
 
-export default VideoListItem;
+
+export default connect(null, {didSelectVideo})(VideoListItem);

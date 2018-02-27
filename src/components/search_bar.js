@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {fetchVideos} from '../actions';
 
 class SearchBar extends Component {
 
@@ -22,10 +24,11 @@ class SearchBar extends Component {
     onInputChange(query) {
       // Set state
       this.setState({query});
-
       // Hit youtube API
-      this.props.onSearchTermChange(query);
+      this.props.fetchVideos(query);
 
     }
   }
-  export default SearchBar;
+
+
+  export default connect(null, {fetchVideos})(SearchBar);

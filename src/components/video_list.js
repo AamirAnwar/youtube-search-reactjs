@@ -8,11 +8,13 @@ class VideoList extends Component {
   }
 
   renderVideos(videos) {
+    if (!videos || videos.length < 1) {
+      return <div></div>
+    }
     return (
       videos.map((video) => {
         return <VideoListItem onVideoClick={this.props.onVideoClick} key={video.id.videoId} video={video} />
       })
-
     );
   }
 
